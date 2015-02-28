@@ -1,4 +1,8 @@
 /* Sign Up Option 1 */
+#sign_up1 h2, #sign_up1 h3, #sign_up1 h1{
+    color: white;
+    text-align: center;
+}
 #sign_up1 {
   background: url("../../img/backgrounds/mango.jpg") no-repeat;
   display: block;
