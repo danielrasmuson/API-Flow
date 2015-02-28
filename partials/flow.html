@@ -1,0 +1,14 @@
+<div class="form-control"
+     contenteditable="true"
+     ng-model="flow.text"
+     ng-keyup="updateSearch($event)"
+     id="flowbox"
+    >
+
+</div>
+<div ng-repeat="option in options">
+  <button>{{option.text}}</button>
+</div>
+
+
+{{flow.text}}

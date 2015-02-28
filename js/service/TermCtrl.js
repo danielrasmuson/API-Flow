@@ -26,10 +26,35 @@ angular.module('app')
         } else{
           return text;
         }
+      },
+      addSuggestionStep: function (triggerKeywords, suggestions){
+        suggestions = [
+          {
+            text: 'facebook photos I\'m  tagged in',
+            type: 'replace',
+            click: function(){
+              // code to look at flow object and replace the text
+            }
+          },
+          {
+            // save my facebook photos to dropbox
+            keywords: ['photos'],
+            replace: 'facebook photos',
+            replaceWith: 'photos I\'ve uploaded',
+            type: 'replace'
+          }
+        ];
+        //OR
+        suggestions = [
+          {
+            text: 'authenicate my twitter account',
+            type: 'action',
+            click: function(){
+              // open authincation flow
+            }
+          }
+        ]
       }
-      //addSuggestion: function (triggerKeywords, suggestions, ){
-
-      //}
     };
     data.terms.push(term);
   };
@@ -44,3 +69,4 @@ angular.module('app')
     addTerm: addTerm
   }
 });
+

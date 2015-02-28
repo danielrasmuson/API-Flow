@@ -2,12 +2,13 @@ angular.module('app')
 .directive('flow', function (TermCtrl) {
   return {
     restrict: 'E',
-    template: '<div class="form-control" contenteditable="true" ng-model="flow.text" ng-keyup="updateSearch($event)" id="flowbox"></div>{{flow.text}}',
+    templateUrl: '../../partials/flow.html',
     controller: function ($scope) {
 
       TermCtrl.addTerm('twitter', 'fa fa-twitter-square fa-lg');
       TermCtrl.addTerm('facebook', 'fa fa-facebook-square fa-lg');
       TermCtrl.addTerm('dropbox', 'fa fa-dropbox fa-lg');
+      TermCtrl.addTerm('wordle', 'fa fa-cloud fa-lg');
 
       $scope.flow = {
         text: '',
