@@ -30,17 +30,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="index.html" class="navbar-brand"><strong>API-Flow {{hello}}</strong></a>
+                <a href="index.html" class="navbar-brand"><strong>API-Flow</strong></a>
             </div>
 
             <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="index.html">HOME</a></li>
-                    <li><a href="about-us.html">Explore</a></li>
-                    <li><a href="pricing.html">Add API</a></li>
-                    <li><a href="contact.html">About</a></li>
+                    <li class="active"><a ui-sref="home">Home</a></li>
+                    <li><a ui-sref="explore">Explore</a></li>
+                    <li><a ui-sref="add">Add API</a></li>
+                    <li><a ui-sref="about">About</a></li>
                     <li>
-                      <a href="sign-in.html">
+                      <a ui-sref="account">
                         My Account
                       </a>
                     </li>
@@ -49,80 +49,10 @@
         </div>
     </div>
 
-    <div id="sign_up1">
-
-
-      <!-- todo dont make this so static -->
-      <div style="padding-top: 100px; width: 100%;"></div>
-
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <h2>
-          Our One Line Tag Line Here
-        </h2>
-        <br/>
-        <br/>
-        <h3>Create Your Own Flow</h3>
-        <span class="form-control" contenteditable="true">
-        </span>
-      </div>
-      <div class="col-md-3"></div>
-    </div>
-
-    <div ui-view></div>
-    <!-- We'll also add some navigation: -->
-    <a ui-sref="state1">State 1</a>
-    <a ui-sref="state2">State 2</a>
-
-    <div id="features">
-        <div class="container">
-            <div class="section_header">
-                <h3>Example Flows</h3>
-            </div>
-            <div class="row feature">
-                <div class="col-sm-6">
-                    <img src="img/showcase1.png" class="img-responsive" />
-                </div>
-                <div class="col-sm-6 info">
-                    <h3>
-                        <img src="img/features-ico1.png" />
-                        Beautiful on all devices
-                    </h3>
-                    <p>
-                        There are many variations of passages of Lorem Ipsum available, but the randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
-                    </p>
-                </div>
-            </div>
-            <div class="row feature">
-                <div class="col-sm-6 pic-right">
-                    <img src="img/showcase2.png" class="pull-right img-responsive" />
-                </div>
-                <div class="col-sm-6 info info-left">
-                    <h3>
-                        <img src="img/features-ico2.png" />
-                        Blog page included
-                    </h3>
-                    <p>
-                        There are many variations of passages of Lorem Ipsum available, but the randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
-                    </p>
-                </div>
-            </div>
-            <div class="row feature">
-                <div class="col-sm-6">
-                    <img src="img/showcase3.png" class="img-responsive" />
-                </div>
-                <div class="col-sm-6 info">
-                    <h3>
-                        <img src="img/features-ico3.png" />
-                        Simple and clean coming soon page
-                    </h3>
-                    <p>
-                        There are many variations of passages of Lorem Ipsum available, but the randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--content goes here-->
+    <span ui-view></span>
+    <!--<a ui-sref="state1">State 1</a>-->
+    <!--<a ui-sref="state2">State 2</a>-->
 
     <!-- starts footer -->
     <footer id="footer">

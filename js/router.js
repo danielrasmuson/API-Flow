@@ -6,26 +6,24 @@ angular.module('app')
   //
   // Now set up the states
   $stateProvider
-  .state('state1', {
-    url: "/state1",
-    templateUrl: "partials/state1.html"
+  .state('home', {
+    url: "/home",
+    templateUrl: "partials/home.html"
   })
-  .state('state1.list', {
-    url: "/list",
-    templateUrl: "partials/state1.list.html",
-    controller: function($scope) {
-      $scope.items = ["A", "List", "Of", "Items"];
-    }
+  .state('explore', {
+    url: "/explore",
+    templateUrl: "partials/explore.html"
   })
-  .state('state2', {
-    url: "/state2",
-    templateUrl: "partials/state2.html"
+  .state('add', {
+    url: "/add",
+    templateUrl: "partials/add.html"
   })
-  .state('state2.list', {
-    url: "/list",
-    templateUrl: "partials/state2.list.html",
-    controller: function($scope) {
-      $scope.things = ["A", "Set", "Of", "Things"];
-    }
+  .state('about', {
+    url: "/about",
+    templateUrl: "partials/about.html"
+  })
+  .state('account', {
+    url: "/account",
+    templateUrl: "partials/account.html"
   });
 });
