@@ -17,6 +17,29 @@ Returns: url to facebook photo
 
 Add Another Endpoint
 
+var flow = new Flow()
+flow.add(token)
+flow.add(endpoint) // returns pic
+flow.add(endpoint) // take in pic
+
+var endpoint1 = new Endpoint(token, [parm1Type], url, return);
+var endpoint2 = new Endpoint(token, [], url, return);
+var endpoint3 = new Endpoint(token, [paramText], url, return);
+endpoint3.fullfillParam(endpoint1.fullfillParam(endpoint2))
+
+var facebook = new Endpoint();
+var dropbox = new Endpoint();
+var emailReciept = new Endpoint();
+
+emailReceipt.fullfill(dropbox.fullfill(facebook()))
+
+
+
+
+<!-- endpoint1.fullfillParam(endpoint3) -->
+
+
+
 ### Create Flow Textbox
 var textbox = new TextBox();
 var term = textbox.registerTerm
