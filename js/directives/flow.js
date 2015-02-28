@@ -8,11 +8,13 @@ angular.module('app')
         //text: '<span class="underline"><i class="fa fa-twitter-square fa-lg"></i> twitter</span> '
         text: ''
       };
-      String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
       var terms = [
         {
           listenFor: 'twitter',
-          iconClass: 'fa fa-twitter-square',
+          iconClass: 'fa fa-twitter-square fa-lg',
+          _getTemplate: function(innerHtml, iconClass){
+            return '<span class="underline"><i class="'+iconClass+'"></i> '+innerHtml+'</span>'
+          },
           _contains: function (text, term) {
             return text.indexOf(term) != -1;
           },
@@ -24,7 +26,7 @@ angular.module('app')
             if (this._shouldIconBeAdded(text)){
               var start = text.indexOf(this.listenFor);
               var end = start+this.listenFor.length;
-              return text.slice(0, start) + 'daniel' + text.slice(end);
+              return text.slice(0, start) + this._getTemplate(this.listenFor, this.iconClass) + text.slice(end);
             } else{
               return text;
             }
@@ -34,8 +36,7 @@ angular.module('app')
 
       $scope.updateSearch = function($event){
         if ($event.keyCode === 32){
-          //syncTermsWithTextbox();
-          console.log(terms[0].inject($scope.flow.text));
+          $scope.flow.text = terms[0].inject($scope.flow.text);
         }
       }
     }
