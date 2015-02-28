@@ -1,42 +1,54 @@
 angular.module('app')
-.directive('flow', function () {
+.directive('flow', function (TermCtrl) {
   return {
     restrict: 'E',
-    template: '<div class="form-control" contenteditable="true" ng-model="flow.text" ng-keyup="updateSearch($event)"></div>{{flow.text}}',
+    template: '<div class="form-control" contenteditable="true" ng-model="flow.text" ng-keyup="updateSearch($event)" id="flowbox"></div>{{flow.text}}',
     controller: function ($scope) {
+
+      TermCtrl.addTerm('twitter', 'fa fa-twitter-square fa-lg');
+      TermCtrl.addTerm('facebook', 'fa fa-facebook-square fa-lg');
+      TermCtrl.addTerm('dropbox', 'fa fa-dropbox fa-lg');
+
       $scope.flow = {
-        //text: '<span class="underline"><i class="fa fa-twitter-square fa-lg"></i> twitter</span> '
-        text: ''
+        text: '',
+        terms: TermCtrl.getTerms()
       };
-      var terms = [
+
+      function setEndOfContenteditable(contentEditableElement){
+        var range,selection;
+        if(document.createRange)//Firefox, Chrome, Opera, Safari, IE 9+
         {
-          listenFor: 'twitter',
-          iconClass: 'fa fa-twitter-square fa-lg',
-          _getTemplate: function(innerHtml, iconClass){
-            return '<span class="underline"><i class="'+iconClass+'"></i> '+innerHtml+'</span>'
-          },
-          _contains: function (text, term) {
-            return text.indexOf(term) != -1;
-          },
-          _shouldIconBeAdded: function (text) {
-            // todo you can only have 1 identifified facebook
-            return this._contains(text, this.listenFor) && !this._contains(text, this.iconClass)
-          },
-          inject: function (text) {
-            if (this._shouldIconBeAdded(text)){
-              var start = text.indexOf(this.listenFor);
-              var end = start+this.listenFor.length;
-              return text.slice(0, start) + this._getTemplate(this.listenFor, this.iconClass) + text.slice(end);
-            } else{
-              return text;
-            }
-          }
+          range = document.createRange();//Create a range (a range is a like the selection but invisible)
+          range.selectNodeContents(contentEditableElement);//Select the entire contents of the element with the range
+          range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+          selection = window.getSelection();//get the selection object (allows you to change selection)
+          selection.removeAllRanges();//remove any selections already made
+          selection.addRange(range);//make the range you have just created the visible selection
         }
-      ];
+        else if(document.selection)//IE 8 and lower
+        {
+          range = document.body.createTextRange();//Create a range (a range is a like the selection but invisible)
+          range.moveToElementText(contentEditableElement);//Select the entire contents of the element with the range
+          range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+          range.select();//Select the range (make it the visible selection
+        }
+      }
 
       $scope.updateSearch = function($event){
         if ($event.keyCode === 32){
-          $scope.flow.text = terms[0].inject($scope.flow.text);
+          var newText = $scope.flow.text;
+
+          for (var i = 0; i < $scope.flow.terms.length; i++) {
+            var term = $scope.flow.terms[i];
+            newText = term.inject(newText);
+          }
+
+          if (newText !== $scope.flow.text){
+            $scope.flow.text = newText;
+            setTimeout(function () {
+              setEndOfContenteditable(document.getElementById('flowbox'));
+            },10);
+          }
         }
       }
     }
