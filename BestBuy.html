@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET","https://api.remix.bestbuy.com/v1/products(customerReviewAverage>4.5&(categoryPath.id=abcat0204000))?apiKey=yzn9e6rtpnj3zu2bbqn2sqbn&callback=JSON_CALLBACK&format=json&fields=source,name", false);
+    xmlHttp.send(null);
+    console.log(JSON.parse(xmlHttp.responseText));
+</script>
+
+</body>
+</html>
