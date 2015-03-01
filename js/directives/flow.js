@@ -158,21 +158,21 @@ angular.module('app')
 
       $scope.openSuccess = function(){
         var data = successData.getData();
-        if ($scope.flow.text.indexOf('twitter') !== -1){
+        if ($scope.flow.text.indexOf('Twitter') !== -1){
           data.url = 'TweetToWordle.html';
           data.visualUrl = 'http://www.apiflow.com/user/23423423/flow/98878897';
           data.show = true;
           setTimeout(function(){
             window.scrollBy(0, 10000)
           }, 100);
-        } else if ($scope.flow.text.indexOf('facebook') !== -1){
+        } else if ($scope.flow.text.indexOf('Facebook') !== -1){
           data.url = 'FacebookToDropbox.html';
           data.visualUrl = 'http://www.apiflow.com/user/23423423/flow/238423423';
           data.show = true;
           setTimeout(function(){
             window.scrollBy(0, 10000)
           }, 100);
-        } else if ($scope.flow.text.indexOf('best buy') !== -1){
+        } else if ($scope.flow.text.indexOf('Best Buy') !== -1){
           data.url = 'BestBuy.html';
           data.visualUrl = 'http://www.apiflow.com/user/23423423/flow/8346827678';
           data.show = true;
