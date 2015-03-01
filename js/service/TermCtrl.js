@@ -9,6 +9,10 @@ angular.module('app')
       listenFor: term,
       iconClass: iconClass,
       _getTemplate: function(innerHtml, iconClass){
+        function toTitleCase(str){
+          return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+        }
+        innerHtml = toTitleCase(innerHtml);
         return '<span class="underline"><i class="'+iconClass+'"></i> '+innerHtml+'</span>'
       },
       _contains: function (text, term) {

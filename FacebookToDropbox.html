@@ -5,8 +5,9 @@
 
     <script>
         function getLastFacebookPhoto(){
+            var facebookKey='CAACEdEose0cBAEkpPFea1knlnDEuTZASWGrVhSQN6erXraNlvDxElhI0ZBlZC8aWVmXh0jRVApzhluBZAv3tLooF5LZBdZCKVFpTaVFqAeUfPop9hF3DkOXE3rR7sk89rcfEL47GoRPQfg1zKihMV8lGwlYh5qBlWF8zavZAIqn9AeE6XgZA0COtFyqYy4Xnem7ybhtQCuOvWZBiUmQ8zR0UjfIZAxwwJw918ZD'
             var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("GET","https://graph.facebook.com/me/photos/uploaded?access_token=CAACEdEose0cBAPZCZBIlNQafr26iXVG7o5mIzVwimAAEFZCg9ZBLIifIMm2VhQjHw1v3RohqHFsIv2DuraV76w3zRvH3Ckyv61wZBRm0U8VAIoifcpWtT3ZAv9dJFPh9MqKQhFVPdWw0xRyPhwQPF9t891EwzNW17f9r9aR4bKPZAgKaUxJPVZCq7WPEHngZBTCZC7uuDXfTaCCdchOy6v1oZC0EZArG6eX39osZD&fields=source,name", false);
+            xmlHttp.open("GET","https://graph.facebook.com/me/photos/uploaded?access_token="+facebookKey+"&fields=source,name", false);
             xmlHttp.send(null);
             return JSON.parse(xmlHttp.responseText);
         }
@@ -23,7 +24,7 @@
             {
                 files: [{'url': source, 'filename': name + '.jpg'}],
                 success: function () {
-                    alert("Success! Photo saved to Dropbox.");
+                    window.location.href = "http://localhost:8000/#/home";
                 },
                 progress: function (progress) {
                 },
