@@ -357,3 +357,7 @@ header {
         margin: 0 30px 0 0; }
   #footer .credits {
     margin-top: 20px; } }
+
+.voila:hover {
+    -webkit-box-shadow: 0 0 12px #abb787;
+}

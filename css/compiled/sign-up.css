@@ -20,7 +20,7 @@ background: url("../../img/backgrounds/mango.jpg") no-repeat;
 
     /*background-o*/
   display: block;
-  height: 90vh;
+  min-height: 100vh;
   margin-bottom: 90px;
   margin-top: -20px;
   -webkit-background-size: cover;

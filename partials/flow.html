@@ -36,7 +36,10 @@
   <i class="fa fa-circle-o-notch fa-spin fa-lg" ng-show="flow.status === 'loading'"></i>
 </button>
 
+<span style="opacity: 0.6; padding-bottom: 10px;">
+  <h3 style="font-family: 'raleway';font-size: 1.6em; text-align: center;">Suggestions:</h3>
+  <span ng-repeat="suggestion in flow.suggestions" style="text-align: center;">
+    <span class="btn btn-default" style="margin-top: 5px; font-size: 1.6em;" ng-show="{{suggestion.type === 'append'}}" ng-click="flow.suggestions=suggestion.suggestions;append(suggestion.text);" tabindex="1" style="text-align: center;">{{suggestion.text}} </span>
+  </span>
+</span>
 
-<div ng-repeat="suggestion in flow.suggestions">
-  <button class="btn btn-default" style="margin-top: 5px;" ng-show="{{suggestion.type === 'append'}}" ng-click="flow.suggestions=suggestion.suggestions;append(suggestion.text);">{{suggestion.text}} </button>
-</div>

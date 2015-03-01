@@ -73,7 +73,22 @@ angular.module('app')
       $scope.flow = {
         text:'',
         terms: TermCtrl.getTerms(),
-        suggestions: [],
+        suggestions: [
+          {
+            text: 'Purchase Best Buy item with Coinbase',
+            type: 'append',
+            suggestions: []
+          },
+          {
+            text: 'Order Uber to next Calendar Event',
+            type: 'append',
+            suggestions: []
+          },
+          {
+            text: 'Upload Facebook photo to Dropbox',
+            type: 'append',
+            suggestions: []
+          }],
         status: 'starting'
       };
 
@@ -130,7 +145,7 @@ angular.module('app')
           refreshTerms();
           $scope.flow.status = 'valid';
         } else{
-          //$scope.flow.suggestions = [];
+          $scope.flow.suggestions = [];
           $scope.flow.status = 'loading';
         }
       }
