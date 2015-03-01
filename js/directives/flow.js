@@ -9,6 +9,8 @@ angular.module('app')
       var facebook =  TermCtrl.addTerm('facebook', 'fa fa-facebook-square fa-lg');
       var dropbox =  TermCtrl.addTerm('dropbox', 'fa fa-dropbox fa-lg');
       var wordle =  TermCtrl.addTerm('wordle', 'fa fa-cloud fa-lg');
+      var bestbuy =  TermCtrl.addTerm('best buy', 'fa fa-tag fa-lg');
+      var bestbuy =  TermCtrl.addTerm('coinbase', 'fa fa-bitcoin fa-lg');
 
       twitter.setSuggestions([
         {
@@ -75,17 +77,17 @@ angular.module('app')
         terms: TermCtrl.getTerms(),
         suggestions: [
           {
-            text: 'Purchase Best Buy item with Coinbase',
+            text: 'purchase best buy item with coinbase',
             type: 'append',
             suggestions: []
           },
           {
-            text: 'Order Uber to next Calendar Event',
+            text: 'order uber to next calendar event',
             type: 'append',
             suggestions: []
           },
           {
-            text: 'Upload Facebook photo to Dropbox',
+            text: 'upload Facebook photo to dropbox',
             type: 'append',
             suggestions: []
           }],
@@ -144,7 +146,7 @@ angular.module('app')
       $scope.updateSearch = function($event){
         if ($event.keyCode === 32){
           refreshTerms();
-          if ($scope.flow.text.indexOf('dropbox') !== -1 || $scope.flow.text.indexOf('launch') !== -1){
+          if ($scope.flow.text.indexOf('Dropbox') !== -1 || $scope.flow.text.indexOf('launch') !== -1 || $scope.flow.text.indexOf('Best Buy') !== -1){
             $scope.flow.status = 'valid';
           }
         } else{
@@ -156,16 +158,23 @@ angular.module('app')
 
       $scope.openSuccess = function(){
         var data = successData.getData();
-        if ($scope.flow.text.indexOf('twitter') !== -1){
+        if ($scope.flow.text.indexOf('Twitter') !== -1){
           data.url = 'TweetToWordle.html';
           data.visualUrl = 'http://www.apiflow.com/user/23423423/flow/98878897';
           data.show = true;
           setTimeout(function(){
             window.scrollBy(0, 10000)
           }, 100);
-        } else if ($scope.flow.text.indexOf('facebook') !== -1){
+        } else if ($scope.flow.text.indexOf('Facebook') !== -1){
           data.url = 'FacebookToDropbox.html';
           data.visualUrl = 'http://www.apiflow.com/user/23423423/flow/238423423';
+          data.show = true;
+          setTimeout(function(){
+            window.scrollBy(0, 10000)
+          }, 100);
+        } else if ($scope.flow.text.indexOf('Best Buy') !== -1){
+          data.url = 'BestBuy.html';
+          data.visualUrl = 'http://www.apiflow.com/user/23423423/flow/8346827678';
           data.show = true;
           setTimeout(function(){
             window.scrollBy(0, 10000)
