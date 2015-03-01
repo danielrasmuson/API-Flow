@@ -9,27 +9,27 @@
 </div>
 
 
-<script type="text/ng-template" id="myModalContent.html">
-    <div class="modal-header">
-        <h3 class="modal-title success">Flow Created Successfully!</h3>
-    </div>
-    <div class="modal-body">
-      <p>Congratulations, you have successfully created this flow.</p>
-      <p>Send Requests to this Endpoint</p>
-      <a href="http://www.apiflow.com/user/23423423/flow/238423423">http://www.apiflow.com/user/23423423/flow/238423423</a>
-      <p>Or feel free to run this flow now.</p>
+<!--<script type="text/ng-template" id="myModalContent.html">-->
+    <!--<div class="modal-header">-->
+        <!--<h3 class="modal-title success">Flow Created Successfully!</h3>-->
+    <!--</div>-->
+    <!--<div class="modal-body">-->
+      <!--<p>Congratulations, you have successfully created this flow.</p>-->
+      <!--<p>Send Requests to this Endpoint</p>-->
+      <!--<a href="http://www.apiflow.com/user/23423423/flow/238423423">http://www.apiflow.com/user/23423423/flow/238423423</a>-->
+      <!--<p>Or feel free to run this flow now.</p>-->
 
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-success" ng-click="ok()">Run Now</button>
-        <button class="btn btn-primary" ng-click="ok()">Copy Endpoint to Clipboard</button>
-        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-    </div>
-</script>
+    <!--</div>-->
+    <!--<div class="modal-footer">-->
+        <!--<button class="btn btn-success" ng-click="ok()">Run Now</button>-->
+        <!--<button class="btn btn-primary" ng-click="ok()">Copy Endpoint to Clipboard</button>-->
+        <!--<button class="btn btn-warning" ng-click="cancel()">Cancel</button>-->
+    <!--</div>-->
+<!--</script>-->
 
 
 
-<button ng-class="flow.status === 'valid' ? 'btn btn-success' : 'btn btn-default'" style="float: right;float: right; padding: 29px; position: relative; top: -80px; left: 80px;" id='sideButtonForFlow' ng-controller="ModalDemoCtrl" ng-click="open()" tabindex="-1">
+<button ng-class="flow.status === 'valid' ? 'btn btn-success' : 'btn btn-default'" style="float: right;float: right; padding: 29px; position: relative; top: -80px; left: 80px;" id='sideButtonForFlow' ng-click="openSuccess()" tabindex="-1">
   <i class="fa fa-circle-o fa-lg" ng-show="flow.status === 'starting'"></i>
   <i class="fa fa-check fa-lg" ng-show="flow.status === 'valid'"></i>
   <i class="fa fa-close" ng-show="flow.status === 'invalid'"></i>
