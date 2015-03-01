@@ -375,7 +375,7 @@ function animateGraphs(){
 };
 setTimeout(function(){
  animateGraphs();
-}, 1000);
+}, 500);
 //$('#feature_slider').ready(function() {
 //  animateGraphs()
 //});
