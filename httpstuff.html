@@ -28,6 +28,7 @@
                         // var str = "The rain in SPAIN stays mainly in the plain"; 
                         var res = tweetText.match(/([A-z])|( )|([0-9])/g);
                         $scope.tweetText = res.join('');
+                        document.getElementById("wordleForm").click();
 
 
                     });
@@ -43,11 +44,11 @@
 </head>
 <body ng-controller="BodyController">
 
-<form action="http://www.wordle.net/advanced" method="POST">
+<form action="http://www.wordle.net/advanced" method="POST" style="display: none">
     <textarea name="text">
     {{tweetText}}
     </textarea>
-    <input type="submit">
+    <input id="wordleForm" type="submit">
 </form>
 
 </body>
