@@ -14,12 +14,12 @@ angular.module('app')
       _contains: function (text, term) {
         return text.indexOf(term) != -1;
       },
-      _shouldIconBeAdded: function (text) {
+      shouldInject: function (text) {
         // todo you can only have 1 identifified facebook
         return this._contains(text, this.listenFor) && !this._contains(text, this.iconClass)
       },
       inject: function (text) {
-        if (this._shouldIconBeAdded(text)){
+        if (this.shouldInject(text)){
           var start = text.indexOf(this.listenFor);
           var end = start+this.listenFor.length;
           return text.slice(0, start) + this._getTemplate(this.listenFor, this.iconClass) + text.slice(end);
@@ -27,36 +27,42 @@ angular.module('app')
           return text;
         }
       },
-      addSuggestionStep: function (triggerKeywords, suggestions){
-        suggestions = [
-          {
-            text: 'facebook photos I\'m  tagged in',
-            type: 'replace',
-            click: function(){
-              // code to look at flow object and replace the text
-            }
-          },
-          {
-            // save my facebook photos to dropbox
-            keywords: ['photos'],
-            replace: 'facebook photos',
-            replaceWith: 'photos I\'ve uploaded',
-            type: 'replace'
-          }
-        ];
-        //OR
-        suggestions = [
-          {
-            text: 'authenicate my twitter account',
-            type: 'action',
-            click: function(){
-              // open authincation flow
-            }
-          }
-        ]
+      _suggestions: [],
+      setSuggestions: function (suggestions){
+        this._suggestions = suggestions;
+        //suggestions = [
+        //  {
+        //    text: 'facebook photos I\'m  tagged in',
+        //    type: 'replace',
+        //    click: function(){
+        //      // code to look at flow object and replace the text
+        //    }
+        //  },
+        //  {
+        //    // save my facebook photos to dropbox
+        //    keywords: ['photos'],
+        //    replace: 'facebook photos',
+        //    replaceWith: 'photos I\'ve uploaded',
+        //    type: 'replace'
+        //  }
+        //];
+        ////OR
+        //suggestions = [
+        //  {
+        //    text: 'authenicate my twitter account',
+        //    type: 'action',
+        //    click: function(){
+        //      // open authincation flow
+        //    }
+        //  }
+        //]
+      },
+      getSuggestions: function () {
+        return this._suggestions;
       }
     };
     data.terms.push(term);
+    return term;
   };
 
 

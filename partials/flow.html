@@ -6,8 +6,8 @@
     >
 
 </div>
-<div ng-repeat="option in options">
-  <button>{{option.text}}</button>
+<div ng-repeat="suggestion in flow.suggestions">
+  <button class="btn btn-default" style="margin-top: 5px;" ng-show="{{suggestion.type === 'append'}}" ng-click="flow.suggestions=suggestion.suggestions;append(suggestion.text);">{{suggestion.text}} </button>
 </div>
 
 
