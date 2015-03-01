@@ -9,7 +9,7 @@
 <button class="btn btn-default" style="float: right;float: right; padding: 6px; position: relative; top: -34px; left: 15px; padding-left: 10px; padding-right: 10px;;" id='sideButtonForFlow'>
   <i class="fa fa-circle-o" ng-show="flow.status === 'starting'"></i>
   <i class="fa fa-check" style="color: green;" ng-show="flow.status === 'valid'"
-     ng-click=""
+     ng-click="runFlow()"
       ></i>
   <i class="fa fa-close" style="color: red;" ng-show="flow.status === 'invalid'"></i>
   <i class="fa fa-circle-o-notch fa-spin" ng-show="flow.status === 'loading'"></i>

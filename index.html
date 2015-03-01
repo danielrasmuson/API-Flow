@@ -8,7 +8,10 @@
     <!-- Styles -->
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/compiled/bootstrap-overrides.css" type="text/css" />
+    <link rel="stylesheet" href="bower_components/sweetalert/lib/sweet-alert.css"/>
     <link rel="stylesheet" type="text/css" href="css/compiled/theme.css" />
+
+
 
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css"/>
@@ -81,13 +84,13 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="bower_components/angular-contenteditable/angular-contenteditable.js"></script>
+    <script src="bower_components/ui.bootstrap/src/modal/modal.js"></script>
     <script>
-      angular.module('app', ['ui.router', 'contenteditable']);
+      angular.module('app', ['ui.router', 'contenteditable', 'ui.bootstrap']);
     </script>
     <script src="js/router.js"></script>
     <script src="js/navCtrls.js"></script>
     <script src="js/service/TermCtrl.js"></script>
-    <!--<script scr="js/controller/flowCtrl.js"></script>-->
     <script src="js/directives/flow.js"></script>
     <script>
       angular.module('app')
@@ -97,6 +100,7 @@
     </script>
 
 
+    <script src="bower_components/sweetalert/lib/sweet-alert.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/theme.js"></script>

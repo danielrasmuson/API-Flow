@@ -10,15 +10,6 @@ angular.module('app')
       var dropbox =  TermCtrl.addTerm('dropbox', 'fa fa-dropbox fa-lg');
       var wordle =  TermCtrl.addTerm('wordle', 'fa fa-cloud fa-lg');
 
-      var dummySuggestions = [
-        {
-          text: 'test1'
-        },
-        {
-          text: 'test2'
-        }
-      ];
-
       twitter.setSuggestions([
         {
           text: 'tweets',
@@ -56,7 +47,6 @@ angular.module('app')
           suggestions: []
         }
       ]);
-      wordle.setSuggestions(dummySuggestions);
       facebook.setSuggestions([
         {
           text: 'photos',
@@ -79,23 +69,12 @@ angular.module('app')
           suggestions: []
         }
       ]);
-      dropbox.setSuggestions(dummySuggestions);
-
-
 
       $scope.flow = {
         text:'',
         terms: TermCtrl.getTerms(),
         suggestions: [],
         status: 'starting'
-      };
-
-      $scope.toggleFlow = function () {
-        if ($scope.flow.status === 'valid'){
-          $scope.flow.status = 'invalid';
-        } else{
-          $scope.flow.status = 'valid';
-        }
       };
 
       $scope.append = function (text) {
@@ -145,6 +124,25 @@ angular.module('app')
           },10);
         }
       }
+
+      $scope.runFlow = function(){
+        ////swal(
+        ////{
+        ////  title: "Are you sure?",
+        ////  text: "Your will <span>hello</span>not be able to recover this imaginary file!",
+        ////  showCancelButton: true,
+        ////  confirmButtonText: "Yes, delete it!",
+        ////  closeOnConfirm: false
+        ////},
+        ////function(){
+        ////  swal("Deleted!",
+        ////  "Your imaginary file has been deleted.",
+        ////  "success");
+        ////}
+        //);
+
+
+      };
 
       $scope.updateSearch = function($event){
         if ($event.keyCode === 32){
