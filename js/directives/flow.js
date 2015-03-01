@@ -154,8 +154,13 @@ angular.module('app')
 
       $scope.openSuccess = function(){
         var data = successData.getData();
-        data.url = 'http://www.apiflow.com/user/23423423/flow/238423423';
-        data.show = true;
+        if ($scope.flow.text.indexOf('twitter') !== -1){
+          data.url = 'http://www.apiflow.com/user/23423423/flow/238423423';
+          data.show = true;
+        } else{
+          data.url = 'http://www.apiflow.com/user/23423423/flow/238423423';
+          data.show = true;
+        }
       }
     }
   }
