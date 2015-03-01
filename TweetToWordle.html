@@ -1,0 +1,60 @@
+</html><!doctype html>
+<html ng-app="app">
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script>
+        angular.module('app', []);
+
+        angular.module('app')
+                .controller('BodyController', function($scope, $http) {
+                    //delete $http.defaults.headers.common['X-Requested-With'];
+                    $scope.hello = 'Hi';
+                    $scope.staticText='l~!//?ug'
+                    var tweetText="";
+
+                    
+                    var str = "The rain in SPAIN stays mainly in the plain"; 
+                    var res = str.match(/ain/g);
+
+
+                    //var bearer = 'AAAAAAAAAAAAAAAAAAAAAKDheQAAAAAA%2Bia%2FBI0MhuyUWlBA4iIb7ZhZ9z4%3DySrtuRL8uPCDHSiMuBFd7Pymx0jLOx1zhz70MoQiJz80qGLA0w'
+                    $http.get('Tweet.json').then(function (response) {
+                        //var min=response.data.statuses[0].id
+                        //console.log(response.data.statuses[0].text);
+                        for (i = 0; i < 100; i++) {
+                         //   if(response.data.statuses[i].id<min){
+                            //    min=response.data.statuses[i].id
+                          //  }
+                            tweetText+=" "+response.data.statuses[i].text
+                            //console.log(i);
+                            //console.log(min);
+                        }
+                        console.log(tweetText);
+                        var res = tweetText.match(/([A-z])|( )|([0-9])/g);
+                        $scope.tweetText = res.join('');
+                        document.getElementById("wordleForm").click();
+
+
+                    });
+                });
+    </script>
+
+    <script>
+        //angular.module('app', []);
+        //$http.get('Tweet.json').then(function (response) {
+            //console.log(response.data.statuses[0].text);
+        //});
+    </script>
+</head>
+<body ng-controller="BodyController">
+
+<form action="http://www.wordle.net/advanced" method="POST" style="display: none">
+    <textarea name="text">
+    {{tweetText}}
+    </textarea>
+    <input id="wordleForm" type="submit">
+</form>
+
+</body>
+</html>
+
