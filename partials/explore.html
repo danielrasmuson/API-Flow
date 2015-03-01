@@ -48,4 +48,23 @@
     </div>
   </article>
 </section>
-<button onclick="animateGraphs()">animate graphs</button>
+
+
+<span ng-controller="popularCtrl">
+  <div style="width: 100%;"  ng-repeat="flow in popularFlows">
+    <div class="col-md-3" style="height: 50px;"></div>
+    <div class="col-md-6" style="border: 1px solid #C8C8C8; border-radius: 10px; padding: 10px;">
+      <i ng-class="flow.fromIcon" style="color: #00006b;"></i>
+      <i class="fa fa-caret-right fa-lg"></i>
+      <i ng-class="flow.toIcon" style="color: #00006b;"></i>
+      <span style="padding-left: 10px; font-size: 16px;">{{flow.text}}</span>
+      <span style="float: right;">
+        <span style="color: green; padding: 5px;" >{{flow.up}}<i class="fa fa-thumbs-up"></i></span>
+        <span style="color: red; padding: 5px;">{{flow.down}} <i class="fa fa-thumbs-down"></i></span>
+      </span>
+    </div>
+    <div class="col-md-3" style="height: 50px;"></div>
+  </div>
+</span>
+
+<div>.</div>

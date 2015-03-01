@@ -125,31 +125,12 @@ angular.module('app')
         }
       }
 
-      $scope.runFlow = function(){
-        ////swal(
-        ////{
-        ////  title: "Are you sure?",
-        ////  text: "Your will <span>hello</span>not be able to recover this imaginary file!",
-        ////  showCancelButton: true,
-        ////  confirmButtonText: "Yes, delete it!",
-        ////  closeOnConfirm: false
-        ////},
-        ////function(){
-        ////  swal("Deleted!",
-        ////  "Your imaginary file has been deleted.",
-        ////  "success");
-        ////}
-        //);
-
-
-      };
-
       $scope.updateSearch = function($event){
         if ($event.keyCode === 32){
           refreshTerms();
           $scope.flow.status = 'valid';
         } else{
-          $scope.flow.suggestions = [];
+          //$scope.flow.suggestions = [];
           $scope.flow.status = 'loading';
         }
       }

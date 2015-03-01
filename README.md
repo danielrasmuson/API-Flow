@@ -1,7 +1,7 @@
 Home | Explore | Add API | About | My Account
 
 ### Design for Homepage
-### Onboarding Apis 
+### Onboarding Apis
 This would be like form with
 
 example
@@ -9,7 +9,7 @@ API Provider: Facebook
 Icon: facebookIcon.png
 
 Endpoint
-Description: A full sentence explaining what the API does. 
+Description: A full sentence explaining what the API does.
 URL: http://www.facebook.com/photo/234233/
 Method: Get, Post, Put, Delete (dropdown)
 Params: photoId
@@ -60,7 +60,7 @@ A row of Apis
     rating : icon > icon > icon plain text add this zp
 
 ### Pricing Page
-monetize: 
+monetize:
 limit of free calls - to get creative flows from driven developers
 limited to get the money from the companies/devs who use ALOT of calls
 
@@ -71,14 +71,17 @@ remembers authenticated / not authenicated api
 user statistics - flow executions, added to apps,  community and single user
 
 ### APIS from sposors we should use
+
 Macys (2500)
-Saber
-Gun
-Spark Posts (10000)
-Connect
-Nordstrum
 Expedia ($$)
 Full Contact (might be good for profiles, $2500)
-Coinbase ($10000)
+Spark Posts (10000)
+
+Saber
+Gun
+Connect
+Nordstrum
 UX/Visual Design
-Best Buy ($450 for students) 
+
+Best Buy ($450 for students)
+Coinbase ($10000)

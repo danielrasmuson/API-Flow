@@ -373,7 +373,9 @@ function animateGraphs(){
         d()
     });
 };
-
+setTimeout(function(){
+ animateGraphs();
+}, 1000);
 //$('#feature_slider').ready(function() {
 //  animateGraphs()
 //});
