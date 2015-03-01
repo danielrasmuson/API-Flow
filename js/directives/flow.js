@@ -1,5 +1,5 @@
 angular.module('app')
-.directive('flow', function (TermCtrl, $compile) {
+.directive('flow', function (TermCtrl, $compile, successData) {
   return {
     restrict: 'E',
     templateUrl: '../../partials/flow.html',
@@ -140,67 +140,90 @@ angular.module('app')
         }
       }
 
+
       $scope.updateSearch = function($event){
         if ($event.keyCode === 32){
           refreshTerms();
-          $scope.flow.status = 'valid';
+          if ($scope.flow.text.indexOf('dropbox') !== -1 || $scope.flow.text.indexOf('launch') !== -1){
+            $scope.flow.status = 'valid';
+          }
         } else{
           $scope.flow.suggestions = [];
           $scope.flow.status = 'loading';
+        }
+      };
+
+
+      $scope.openSuccess = function(){
+        var data = successData.getData();
+        if ($scope.flow.text.indexOf('twitter') !== -1){
+          data.url = 'TweetToWordle.html';
+          data.visualUrl = 'http://www.apiflow.com/user/23423423/flow/98878897';
+          data.show = true;
+          setTimeout(function(){
+            window.scrollBy(0, 10000)
+          }, 100);
+        } else if ($scope.flow.text.indexOf('facebook') !== -1){
+          data.url = 'FacebookToDropbox.html';
+          data.visualUrl = 'http://www.apiflow.com/user/23423423/flow/238423423';
+          data.show = true;
+          setTimeout(function(){
+            window.scrollBy(0, 10000)
+          }, 100);
         }
       }
     }
   }
 });
 
-angular.module('app').controller('ModalDemoCtrl', function ($scope, $modal, $log) {
-
-  $scope.items = ['item1', 'item2', 'item3'];
-
-  $scope.open = function () {
-    swal({
-      title: "Success!",
-      text: "",
-      type: "success",
-      showCancelButton: false,
-      timer: 1000
-    });
-    setTimeout(function(){
-      var modalInstance = $modal.open({
-      templateUrl: 'myModalContent.html',
-      controller: 'ModalInstanceCtrl',
-      resolve: {
-        items: function () {
-          return $scope.items;
-        }
-      }
-    });
-
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
-      }, function () {
-        $log.info('Modal dismissed at: ' + new Date());
-      });
-    }, 1300);
-
-  };
-});
-
-// Please note that $modalInstance represents a modal window (instance) dependency.
-// It is not the same as the $modal service used above.
-
-angular.module('app').controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
-
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
-
-  $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
-  };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-});
+//angular.module('app').controller('ModalDemoCtrl', function ($scope, $modal, $log) {
+//
+//  $scope.items = ['item1', 'item2', 'item3'];
+//
+//  $scope.open = function () {
+//    swal({
+//      title: "Success!",
+//      text: "",
+//      type: "success",
+//      showCancelButton: false,
+//      timer: 1000
+//    });
+//    setTimeout(function(){
+//      var modalInstance = $modal.open({
+//      templateUrl: 'myModalContent.html',
+//      controller: 'ModalInstanceCtrl',
+//      resolve: {
+//        items: function () {
+//          return $scope.items;
+//        }
+//      }
+//    });
+//
+//      modalInstance.result.then(function (selectedItem) {
+//        $scope.selected = selectedItem;
+//      }, function () {
+//        $log.info('Modal dismissed at: ' + new Date());
+//      });
+//    }, 1300);
+//
+//  };
+//});
+//
+//// Please note that $modalInstance represents a modal window (instance) dependency.
+//// It is not the same as the $modal service used above.
+//
+//angular.module('app').controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
+//
+//  $scope.items = items;
+//  $scope.selected = {
+//    item: $scope.items[0]
+//  };
+//
+//  $scope.ok = function () {
+//    $modalInstance.close($scope.selected.item);
+//  };
+//
+//  $scope.cancel = function () {
+//    $modalInstance.dismiss('cancel');
+//  };
+//});
