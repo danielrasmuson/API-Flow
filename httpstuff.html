@@ -1,0 +1,44 @@
+</html><!doctype html>
+<html ng-app="app">
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script>
+        angular.module('app', []);
+
+        angular.module('app')
+                .controller('BodyController', function($scope, $http) {
+                    //delete $http.defaults.headers.common['X-Requested-With'];
+                    $scope.hello = 'Hi';
+                    var bearer = 'AAAAAAAAAAAAAAAAAAAAAKDheQAAAAAA%2Bia%2FBI0MhuyUWlBA4iIb7ZhZ9z4%3DySrtuRL8uPCDHSiMuBFd7Pymx0jLOx1zhz70MoQiJz80qGLA0w'
+                    $http.get('Tweet.json').then(function (response) {
+                        //console.log(response.data.statuses[0].text);
+                    });
+                    $http({
+                        method: 'GET',
+                        url: 'http://www.api.twitter.com/1.1/search/tweets.json?q=%23launch&result_type=recent&count=10',
+                        headers: {'Authorization': 'Bearer '+bearer},
+                      //  params: 'count=1, screen_name=twitterapi'
+
+
+                    }).then(function (response) {
+                       console.log(response.data);
+                    });
+
+
+//                    $http.post('urlToPost', 'dataToPost')
+//                            .then(function (result) {
+//                                alert(result.data)
+//                            });
+                });
+
+
+    </script>
+
+    <script>
+
+    </script>
+</head>
+<body ng-controller="BodyController">
+{{hello}}
+</body>
+</html>
