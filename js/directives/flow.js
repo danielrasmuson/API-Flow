@@ -87,7 +87,7 @@ angular.module('app')
             suggestions: []
           },
           {
-            text: 'upload Facebook photo to dropbox',
+            text: 'upload facebook photo to dropbox',
             type: 'append',
             suggestions: []
           }],
