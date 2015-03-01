@@ -1,6 +1,7 @@
 angular.module('app')
 .service('successData', function () {
   var data = {
+    visualUrl: '',
     url: '',
     show: false
   };
