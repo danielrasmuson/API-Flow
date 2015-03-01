@@ -9,36 +9,50 @@
                 .controller('BodyController', function($scope, $http) {
                     //delete $http.defaults.headers.common['X-Requested-With'];
                     $scope.hello = 'Hi';
+                    $scope.staticText='l~!//?ug'
+                    var tweetText="";
                     var bearer = 'AAAAAAAAAAAAAAAAAAAAAKDheQAAAAAA%2Bia%2FBI0MhuyUWlBA4iIb7ZhZ9z4%3DySrtuRL8uPCDHSiMuBFd7Pymx0jLOx1zhz70MoQiJz80qGLA0w'
                     $http.get('Tweet.json').then(function (response) {
                         //console.log(response.data.statuses[0].text);
+                        for (i = 0; i < 10; i++) {
+                            tweetText+=" "+response.data.statuses[i].text
+                            //console.log(response.data.statuses[i].text);
+                        }
+                        console.log(tweetText);
+                        $scope.tweetText=tweetText;
+
                     });
-                    $http({
-                        method: 'GET',
-                        url: 'http://www.api.twitter.com/1.1/search/tweets.json?q=%23launch&result_type=recent&count=10',
-                        headers: {'Authorization': 'Bearer '+bearer},
-                      //  params: 'count=1, screen_name=twitterapi'
+//                    $http({
+//                        method: 'GET',
+//                        url: 'http://www.api.twitter.com/1.1/search/tweets.json?q=%23launch&result_type=recent&count=10',
+//                        headers: {'Authorization': 'Bearer '+bearer},
+//                      //  params: 'count=1, screen_name=twitterapi'
+//
+//
+//                    }).then(function (response) {
+//                       //console.log(response.data);
+//                    });
 
 
-                    }).then(function (response) {
-                       console.log(response.data);
-                    });
-
-
-//                    $http.post('urlToPost', 'dataToPost')
-//                            .then(function (result) {
-//                                alert(result.data)
-//                            });
                 });
 
 
     </script>
 
     <script>
-
+        //angular.module('app', []);
+        //$http.get('Tweet.json').then(function (response) {
+            //console.log(response.data.statuses[0].text);
+        //});
     </script>
 </head>
 <body ng-controller="BodyController">
-{{hello}}
+
+
+<form action="http://www.wordle.net/advanced" method="POST">
+    <textarea name="text" style="display:none">
+    </textarea>
+    <input type="submit">
+</form>
 </body>
 </html>
