@@ -161,12 +161,18 @@ angular.module('app').controller('ModalDemoCtrl', function ($scope, $modal, $log
 
   $scope.items = ['item1', 'item2', 'item3'];
 
-  $scope.open = function (size) {
-
-    var modalInstance = $modal.open({
+  $scope.open = function () {
+    swal({
+      title: "Success!",
+      text: "",
+      type: "success",
+      showCancelButton: false,
+      timer: 1000
+    });
+    setTimeout(function(){
+      var modalInstance = $modal.open({
       templateUrl: 'myModalContent.html',
       controller: 'ModalInstanceCtrl',
-      size: size,
       resolve: {
         items: function () {
           return $scope.items;
@@ -174,11 +180,13 @@ angular.module('app').controller('ModalDemoCtrl', function ($scope, $modal, $log
       }
     });
 
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
-    });
+      modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+      }, function () {
+        $log.info('Modal dismissed at: ' + new Date());
+      });
+    }, 1300);
+
   };
 });
 
