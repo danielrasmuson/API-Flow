@@ -11,18 +11,23 @@
                     $scope.hello = 'Hi';
                     var bearer = 'AAAAAAAAAAAAAAAAAAAAAKDheQAAAAAA%2Bia%2FBI0MhuyUWlBA4iIb7ZhZ9z4%3DySrtuRL8uPCDHSiMuBFd7Pymx0jLOx1zhz70MoQiJz80qGLA0w'
                     $http.get('Tweet.json').then(function (response) {
-                        //console.log(response.data.statuses[0].text);
-                    });
-                    $http({
-                        method: 'GET',
-                        url: 'http://www.api.twitter.com/1.1/search/tweets.json?q=%23launch&result_type=recent&count=10',
-                        headers: {'Authorization': 'Bearer '+bearer},
-                      //  params: 'count=1, screen_name=twitterapi'
+                      float: right; padding: 10px; position: relative; top: -7px;
+                      var statuses = response.data.statuses;
+                      for (var i = 0; i < statuses.length; i++) {
+                        var obj = statuses[i];
 
-
-                    }).then(function (response) {
-                       console.log(response.data);
+                      }
                     });
+//                    $http({
+//                        method: 'GET',
+//                        url: 'http://www.api.twitter.com/1.1/search/tweets.json?q=%23launch&result_type=recent&count=10',
+//                        headers: {'Authorization': 'Bearer '+bearer},
+//                      //  params: 'count=1, screen_name=twitterapi'
+//
+//
+//                    }).then(function (response) {
+//                       console.log(response.data);
+//                    });
 
 
 //                    $http.post('urlToPost', 'dataToPost')

@@ -1,5 +1,5 @@
 angular.module('app')
-.directive('flow', function (TermCtrl) {
+.directive('flow', function (TermCtrl, $compile) {
   return {
     restrict: 'E',
     templateUrl: '../../partials/flow.html',
@@ -81,10 +81,13 @@ angular.module('app')
       ]);
       dropbox.setSuggestions(dummySuggestions);
 
+
+
       $scope.flow = {
-        text: '',
+        text:'',
         terms: TermCtrl.getTerms(),
-        suggestions: []
+        suggestions: [],
+        status: 'valid'
       };
 
       $scope.append = function (text) {
