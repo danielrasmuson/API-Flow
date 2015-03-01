@@ -6,13 +6,17 @@
 #sign_up1 {
   background: url("../../img/backgrounds/mango.jpg") no-repeat;
   display: block;
-  height: 540px;
+  height: 90vh;
   margin-bottom: 90px;
   margin-top: -20px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; }
+  background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+
   #sign_up1 .header {
     text-align: center;
     margin: 0;
@@ -318,7 +322,7 @@
 @media (max-width: 767px) {
   #sign_up1 {
     background: none;
-    height: auto; }
+    height: 90vh; }
     #sign_up1 .header h4 {
       color: #333;
       line-height: 35px;
