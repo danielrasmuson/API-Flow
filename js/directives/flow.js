@@ -160,10 +160,16 @@ angular.module('app')
           data.url = 'TweetToWordle.html';
           data.visualUrl = 'http://www.apiflow.com/user/23423423/flow/98878897';
           data.show = true;
+          setTimeout(function(){
+            window.scrollBy(0, 10000)
+          }, 100);
         } else if ($scope.flow.text.indexOf('facebook') !== -1){
           data.url = 'FacebookToDropbox.html';
           data.visualUrl = 'http://www.apiflow.com/user/23423423/flow/238423423';
           data.show = true;
+          setTimeout(function(){
+            window.scrollBy(0, 10000)
+          }, 100);
         }
       }
     }
