@@ -87,7 +87,15 @@ angular.module('app')
         text:'',
         terms: TermCtrl.getTerms(),
         suggestions: [],
-        status: 'valid'
+        status: 'starting'
+      };
+
+      $scope.toggleFlow = function () {
+        if ($scope.flow.status === 'valid'){
+          $scope.flow.status = 'invalid';
+        } else{
+          $scope.flow.status = 'valid';
+        }
       };
 
       $scope.append = function (text) {
@@ -141,6 +149,10 @@ angular.module('app')
       $scope.updateSearch = function($event){
         if ($event.keyCode === 32){
           refreshTerms();
+          $scope.flow.status = 'valid';
+        } else{
+          $scope.flow.suggestions = [];
+          $scope.flow.status = 'loading';
         }
       }
     }
