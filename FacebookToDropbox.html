@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="43a7n3papi3g0ez"></script>
+
+    <script>
+        function getLastFacebookPhoto(){
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET","https://graph.facebook.com/me/photos/uploaded?access_token=CAACEdEose0cBAObJKK8sXUrL7MOZAkZAXOqSvc9WKk7v1GGZCShQcM02cQ0LP4Pg0EfJVEZCHX1DnBYYkTp3JtY5MZB7dXzZAiC6rpaceZAUKiLeFyZCcOvcZBeILcJFh2neokc9fVtTBgmuz1PNexFwiQ48li8zHxQeENaxEGaiZCkAkCqj21HcH7pt29XMVDheNl5Fl3KsOYdEZAaN7GJL5KW&fields=source,name", false);
+            xmlHttp.send(null);
+            return JSON.parse(xmlHttp.responseText);
+        }
+        var jsonResponse=getLastFacebookPhoto()
+        var source = jsonResponse.data[0].source;
+        var name = jsonResponse.data[0].name;
+        console.log("end of facebook");
+    </script>
+
+
+    <script>
+        function savePhotoToDropbox(source, name) {
+            var options =
+            {
+                files: [{'url': source, 'filename': name + '.jpg'}],
+                success: function () {
+                    alert("Success! Photo saved to Dropbox.");
+                },
+                progress: function (progress) {
+                },
+                cancel: function (cancel) {
+                },
+                error: function (errorMessage) {
+                }
+            };
+            Dropbox.save(options);
+        }
+        console.log("end of dropbox");
+        savePhotoToDropbox(source, name);
+    </script>
+
+
+</head>
+
+<body ng-controller="BodyController">
+
+</body>
+</html>
