@@ -12,27 +12,29 @@
                     $scope.staticText='l~!//?ug'
                     var tweetText="";
 
-                    
-                    var str = "The rain in SPAIN stays mainly in the plain"; 
+
+                    var str = "The rain in SPAIN stays mainly in the plain";
                     var res = str.match(/ain/g);
 
 
-                    //var bearer = 'AAAAAAAAAAAAAAAAAAAAAKDheQAAAAAA%2Bia%2FBI0MhuyUWlBA4iIb7ZhZ9z4%3DySrtuRL8uPCDHSiMuBFd7Pymx0jLOx1zhz70MoQiJz80qGLA0w'
+                    var bearer = 'AAAAAAAAAAAAAAAAAAAAAKDheQAAAAAA%2Bia%2FBI0MhuyUWlBA4iIb7ZhZ9z4%3DySrtuRL8uPCDHSiMuBFd7Pymx0jLOx1zhz70MoQiJz80qGLA0w'
                     $http.get('Tweet.json').then(function (response) {
-                        //var min=response.data.statuses[0].id
+                        var min=response.data.statuses[0].id
                         //console.log(response.data.statuses[0].text);
                         for (i = 0; i < 100; i++) {
                          //   if(response.data.statuses[i].id<min){
                             //    min=response.data.statuses[i].id
                           //  }
                             tweetText+=" "+response.data.statuses[i].text
-                            //console.log(i);
+                            console.log(i);
                             //console.log(min);
                         }
                         console.log(tweetText);
                         var res = tweetText.match(/([A-z])|( )|([0-9])/g);
                         $scope.tweetText = res.join('');
-                        document.getElementById("wordleForm").click();
+                        setTimeout(function(){
+                          document.getElementById("wordleForm").click();
+                        }, 100);
 
 
                     });
@@ -48,7 +50,7 @@
 </head>
 <body ng-controller="BodyController">
 
-<form action="http://www.wordle.net/advanced" method="POST" style="display: none">
+<form action="http://www.wordle.net/advanced" method="POST">
     <textarea name="text">
     {{tweetText}}
     </textarea>
