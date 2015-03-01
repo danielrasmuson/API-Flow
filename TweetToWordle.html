@@ -21,7 +21,7 @@
                     $http.get('Tweet.json').then(function (response) {
                         var min=response.data.statuses[0].id
                         //console.log(response.data.statuses[0].text);
-                        for (i = 0; i < 50; i++) {
+                        for (i = 0; i < 10; i++) {
                          //   if(response.data.statuses[i].id<min){
                             //    min=response.data.statuses[i].id
                           //  }
@@ -30,20 +30,22 @@
                             //console.log(min);
                         }
 
+                        tweetText = tweetText.toLowerCase();
 
-                        function replaceAll(find, replace, str) {
-                          return str.replace(new RegExp(find, 'g'), replace);
-                        }
+                        //function replaceAll(find, replace, str) {
+                         // return str.replace(new RegExp(find, 'g'), replace);
+                        //}
 
 
                         console.log(tweetText);
                         var res = tweetText.match(/([A-z])|( )|([0-9])/g);
                         $scope.tweetText = res.join('');
-                        $scope.tweetText = replaceAll('launchhack', '',$scope.tweetText);
+
+                        //$scope.tweetText = replaceAll('launchhack', '',$scope.tweetText);
                         // $scope.tweetText = replaceAll('Launch', '',$scope.tweetText);
-                        $scope.tweetText = replaceAll('LaunchHack', '',$scope.tweetText);
+                        //$scope.tweetText = replaceAll('LaunchHack', '',$scope.tweetText);
                         // $scope.tweetText = replaceAll('httpco', '',$scope.tweetText);
-                        $scope.tweetText = replaceAll('RT', '',$scope.tweetText);
+                        //$scope.tweetText = replaceAll('RT', '',$scope.tweetText);
                         setTimeout(function(){
                           document.getElementById("wordleForm").click();
                         }, 100);
