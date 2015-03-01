@@ -11,45 +11,27 @@
                     $scope.hello = 'Hi';
                     $scope.staticText='l~!//?ug'
                     var tweetText="";
+
+                    
+                    var str = "The rain in SPAIN stays mainly in the plain"; 
+                    var res = str.match(/ain/g);
+
                     var bearer = 'AAAAAAAAAAAAAAAAAAAAAKDheQAAAAAA%2Bia%2FBI0MhuyUWlBA4iIb7ZhZ9z4%3DySrtuRL8uPCDHSiMuBFd7Pymx0jLOx1zhz70MoQiJz80qGLA0w'
                     $http.get('Tweet.json').then(function (response) {
-<<<<<<< HEAD
-                      float: right; padding: 10px; position: relative; top: -7px;
-                      var statuses = response.data.statuses;
-                      for (var i = 0; i < statuses.length; i++) {
-                        var obj = statuses[i];
 
-                      }
-=======
                         //console.log(response.data.statuses[0].text);
                         for (i = 0; i < 10; i++) {
                             tweetText+=" "+response.data.statuses[i].text
                             //console.log(response.data.statuses[i].text);
                         }
                         console.log(tweetText);
-                        $scope.tweetText=tweetText;
+                        // var str = "The rain in SPAIN stays mainly in the plain"; 
+                        var res = tweetText.match(/([A-z])|( )|([0-9])/g);
+                        $scope.tweetText = res.join('');
 
->>>>>>> cb48c5596b02196742bc9840bcb5806a759caa20
+
                     });
-//                    $http({
-//                        method: 'GET',
-//                        url: 'http://www.api.twitter.com/1.1/search/tweets.json?q=%23launch&result_type=recent&count=10',
-//                        headers: {'Authorization': 'Bearer '+bearer},
-//                      //  params: 'count=1, screen_name=twitterapi'
-//
-//
-//                    }).then(function (response) {
-<<<<<<< HEAD
-//                       console.log(response.data);
-=======
-//                       //console.log(response.data);
->>>>>>> cb48c5596b02196742bc9840bcb5806a759caa20
-//                    });
-
-
                 });
-
-
     </script>
 
     <script>
@@ -61,11 +43,13 @@
 </head>
 <body ng-controller="BodyController">
 
-
 <form action="http://www.wordle.net/advanced" method="POST">
-    <textarea name="text" style="display:none">
+    <textarea name="text">
+    {{tweetText}}
     </textarea>
     <input type="submit">
 </form>
+
 </body>
 </html>
+
