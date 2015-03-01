@@ -144,7 +144,9 @@ angular.module('app')
       $scope.updateSearch = function($event){
         if ($event.keyCode === 32){
           refreshTerms();
-          $scope.flow.status = 'valid';
+          if ($scope.flow.text.indexOf('dropbox') !== -1 || $scope.flow.text.indexOf('launch') !== -1){
+            $scope.flow.status = 'valid';
+          }
         } else{
           $scope.flow.suggestions = [];
           $scope.flow.status = 'loading';
