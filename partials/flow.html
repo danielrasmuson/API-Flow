@@ -6,11 +6,31 @@
     >
 
 </div>
-<button class="btn btn-default" style="float: right;float: right; padding: 6px; position: relative; top: -34px; left: 15px; padding-left: 10px; padding-right: 10px;;" id='sideButtonForFlow'>
+
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title success">Flow Created Successfully!</h3>
+    </div>
+    <div class="modal-body">
+      <p>Congratulations, you have successfully created this flow.</p>
+      <p>Send Requests to this Endpoint</p>
+      <a href="http://www.apiflow.com/user/23423423/flow/238423423">http://www.apiflow.com/user/23423423/flow/238423423</a>
+      <p>Or feel free to run this flow now.</p>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="ok()">Run Now</button>
+        <button class="btn btn-primary" ng-click="ok()">Copy Endpoint to Clipboard</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+
+
+
+<button class="btn btn-default" style="float: right;float: right; padding: 6px; position: relative; top: -34px; left: 15px; padding-left: 10px; padding-right: 10px;;" id='sideButtonForFlow' ng-controller="ModalDemoCtrl" ng-click="open()">
   <i class="fa fa-circle-o" ng-show="flow.status === 'starting'"></i>
-  <i class="fa fa-check" style="color: green;" ng-show="flow.status === 'valid'"
-     ng-click="runFlow()"
-      ></i>
+  <i class="fa fa-check" style="color: green;" ng-show="flow.status === 'valid'"></i>
   <i class="fa fa-close" style="color: red;" ng-show="flow.status === 'invalid'"></i>
   <i class="fa fa-circle-o-notch fa-spin" ng-show="flow.status === 'loading'"></i>
 </button>
