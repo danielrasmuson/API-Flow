@@ -29,7 +29,7 @@ angular.module('app')
               type: 'append',
               suggestions: [
                 {
-                  text: 'hashtag',
+                  text: '#',
                   type: 'append',
                   suggestions: []
                 }
