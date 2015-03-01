@@ -1,0 +1,8 @@
+newEndpoint(token, [param1,param2],url, desc, returns,)
+
+        https://graph.facebook.com/10152909056783136/photos?access_token=CAACEdEose0cBAPnZC59rb5K8xZAnwVAUQQlReTjXhj1ftuyvcRuFQ4YWgpaPrCVi9V852ZCqN4Mow0XScIt25jzcYMmse72LOCuRssMhwwnvA2ZCWqlNNku1UDkOJb1TWutd9Vkcpgoovmp6PqBeI98fQjNsnF4HHMTesGZAcxMCZCX7Kp5V0CIBpeVyW1vlrxzniHVzrwuptK4uV8QE32
+
+URL: https://graph.facebook/{userId}/photos
+
+Parameters:
+access_token: CAACEdEose0cBAPnZC59rb5K8xZAnwVAUQQlReTjXhj1ftuyvcRuFQ4YWgpaPrCVi9V852ZCqN4Mow0XScIt25jzcYMmse72LOCuRssMhwwnvA2ZCWqlNNku1UDkOJb1TWutd9Vkcpgoovmp6PqBeI98fQjNsnF4HHMTesGZAcxMCZCX7Kp5V0CIBpeVyW1vlrxzniHVzrwuptK4uV8QE32
